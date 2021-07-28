@@ -27,10 +27,10 @@ class MainController extends Controller
         //
         //$datas = Noah::all();
         //return view('viewing',compact('datas'));
-        $datas = HotlistDepot::join('hotlist_sbus', 'hotlist_sbus.id', '=', 'hotlist_depots.id')
-        ->join('hotlist_items', 'hotlist_items.id','=','hotlist_sbus.id')
-        ->get(['hotlist_depots.depot','hotlist_sbus.sbu','hotlist_items.item','hotlist_depots.id']);
-            return view('viewing',compact('datas'));
+        //$datas = HotlistDepot::join('hotlist_sbus', 'hotlist_sbus.id', '=', 'hotlist_depots.id')
+        //->join('hotlist_items', 'hotlist_items.id','=','hotlist_sbus.id')
+        //->get(['hotlist_depots.depot','hotlist_sbus.sbu','hotlist_items.item','hotlist_depots.id']);
+           return view('viewing');
     }
 
     /**

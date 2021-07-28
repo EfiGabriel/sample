@@ -51,21 +51,27 @@
             <div class="sidebar-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="http://jfc-csc.herokuapp.com/public/noah/orderlist">
+                        <a class="nav-link" href="{{route('sample.index')}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                             Hotlist Report Items
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://jfc-csc.herokuapp.com/public/noah/hotlist">
+                        <a class="nav-link" href="{{route('depot.index')}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg>
-                            Hotlist (3PL)
+                            Hotlist Depot
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://jfc-csc.herokuapp.com/public/noah/jwslhotlist">
+                        <a class="nav-link" href="{{route('sbu.create')}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg>
-                            Hotlist (JWSL)
+                            Hotlist SBU
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('item.create')}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg>
+                            Hotlist Item
                         </a>
                     </li>
                     <li class="nav-item">
@@ -113,25 +119,13 @@
             </tr>
           </thead>
           <tbody>
-        @foreach ($datas as $data)
+        
         @csrf
           <tr>
-              <td class="sorting_1"> {{$data->sbu}}</td>
-              <td> {{$data->depot}}</td>
-              <td> {{$data->item}}</td>
-              <td> {{$data->UOM}}</td>
-              <td> {{$data->Pallet}}</td>
-              <td> {{$data->Actual}}</td>
-              <td> {{$data->TP}}</td>
-              <td> {{$data->ItemType}}</td>
-              <td> {{$data->Status}}</td>
-            <td>
-                <a type="button" href="{{route('sample.edit',$data->id)}}" class="btn btn-info">Update</a> 
-                <a type="button" href="{{route('sample.destroy',$data->id)}}" class="btn btn-danger">Delete</a>
-            <button style="padding-left: 5px;" type="button" class="btn btn-info" data-toggle="modal" data-target="#staticBackdrop2">Details</button>
+               
               </td>
             </tr>
-        @endforeach
+       
         </tbody>
       </div>
 
@@ -177,7 +171,7 @@
                 <div class="modal-body">
                   <div class="row">
                       <div class="col-sm-6 col-md-6">
-                          <label class="font-weight-bold">Plant/Depot No.</label>: {{$data->Depot}}
+                          <label class="font-weight-bold">Plant/Depot No.</label>:
                       </div>
                       <div class="col-sm-6 col-md-6">
                           <label class="font-weight-bold">Requestor Name</label>: Drew
@@ -186,7 +180,7 @@
                           <label class="font-weight-bold">Requestor Email</label>: Drew@email.com
                       </div>
                       <div class="col-sm-6 col-md-6">
-                          <label class="font-weight-bold">SBU</label>: {{$data->SBU}}
+                          <label class="font-weight-bold">SBU</label>: 
                       </div>
                       <div class="col-sm-6 col-md-6">
                           <label class="font-weight-bold">Item</label>: 4000007033-Wrapper
@@ -216,7 +210,7 @@
                           <label class="font-weight-bold">TP/UOM</label>: 100
                       </div>
                       <div class="col-sm-6 col-md-6">
-                          <label class="font-weight-bold"># of Pallet Used</label>: {{$data->Pallet}}
+                          <label class="font-weight-bold"># of Pallet Used</label>:
                       </div>
                       <div class="col-sm-6 col-md-6">
                           <label class="font-weight-bold">SAP Inventory Balance</label>: 6

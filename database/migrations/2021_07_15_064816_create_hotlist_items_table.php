@@ -15,14 +15,15 @@ class CreateHotlistItemsTable extends Migration
     {
         Schema::create('hotlist_items', function (Blueprint $table) {
             $table->id();
-            $table->string('Item');
+            $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
+     *›
      * @return void
      */
     public function down()

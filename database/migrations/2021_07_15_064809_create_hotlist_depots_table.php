@@ -15,9 +15,10 @@ class CreateHotlistDepotsTable extends Migration
     {
         Schema::create('hotlist_depots', function (Blueprint $table) {
             $table->id();
-            $table->string('Depot');
+            $table->string('name');
             $table->timestamps();
-        });
+            $table->softDeletes();
+        });        
     }
 
     /**
@@ -28,5 +29,8 @@ class CreateHotlistDepotsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('hotlist_depots');
+        Schema::create('hotlist_depots', function (Blueprint $table) {
+        $table->dropColumn('deleted_at');
+        });
     }
 }

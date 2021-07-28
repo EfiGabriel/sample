@@ -15,8 +15,9 @@ class CreateHotlistSbusTable extends Migration
     {
         Schema::create('hotlist_sbus', function (Blueprint $table) {
             $table->id();
-            $table->string('SBU');
+            $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
